@@ -1,0 +1,4 @@
+requests>=2.31.0
+yfinance>=0.2.54
+rich>=13.7.0
+openpyxl>=3.1.2
