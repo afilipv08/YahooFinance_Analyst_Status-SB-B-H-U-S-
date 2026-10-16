@@ -1,12 +1,23 @@
-name: My First Workflow
+name: My First Python Workflow
 
 on:
   workflow_dispatch:
 
 jobs:
-  test:
+  run-python:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say hello
-        run: echo "Hello Alexandru! GitHub Actions is working."
+      - name: Get repository files
+        uses: actions/checkout@v7
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Check Python
+        run: python --version
+
+      - name: Run Python test
+        run: python -c "print('Hello Alexandru! Python is running inside GitHub Actions!')"
